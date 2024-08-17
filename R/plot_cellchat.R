@@ -26,7 +26,7 @@ for (i in 1:ngroup){
 }
 cpsize = cpsize+1
 
-gene = toupper(gene)
+gene = gene[,1]
 useGene = toupper(useGene)
 use_rank = which(match_list1 == match(useGene, gene))
 
