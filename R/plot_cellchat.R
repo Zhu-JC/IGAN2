@@ -27,8 +27,6 @@ for (i in 1:ngroup){
 cpsize = cpsize+1
 
 gene = gene[,1]
-gene
-useGene = toupper(useGene)
 use_rank = which(match_list1 == match(useGene, gene))
 
 celltypes_corM = matrix(0,nrow = ncelltype,ncol = ncelltype)
