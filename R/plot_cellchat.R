@@ -36,6 +36,8 @@ colnames(celltypes_corM) = celltypes
 for (i in 1:ngroup) {
   use_celltype = as.matrix(cells_group[[i]])[4:5,]
   sub_result = result[[i]][use_rank]
+  if(length(sub_result[[1]]) == 0)
+    next
   k = which(colSums(sub_result[[1]])>0)
   cell = use_celltype[,as.numeric(colnames(sub_result[[1]])[k])]
   for (j in 1:ncol(cell)) {
