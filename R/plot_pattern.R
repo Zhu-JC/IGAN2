@@ -22,6 +22,8 @@ plot_pattern = function(result,cells_group,gene,match_list1,match_list2,ident,pa
   for (i in 1:ngroup) {
     #print(i)
     sub_result = result[[i]][lengths(result[[i]]) > 0]
+    if(length(sub_result) == 0)
+      next
     group_corM = sapply(sub_result, function(x, ncols){
       k = as.numeric(row.names(x))
       sub_corM = matrix(0,1,ncols)
@@ -51,6 +53,8 @@ plot_pattern = function(result,cells_group,gene,match_list1,match_list2,ident,pa
   for (i in 1:ngroup) {
     #print(i)
     sub_result = result[[i]][use_gene]
+    if(length(sub_result[lengths(sub_result) > 0]) == 0)
+      next
     if(pattern == 'outgoing'){
       use_celltype = as.matrix(cells_group[[i]])[4:5,]
     }else{
