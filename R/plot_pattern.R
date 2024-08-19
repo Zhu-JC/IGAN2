@@ -17,8 +17,8 @@
 plot_pattern = function(result,cells_group,gene,match_list1,match_list2,ident,pattern,n){
   ngroup = length(cells_group)
   Gene_corM = matrix(0,nrow = length(match_list1), ncol = length(match_list2))
-  rownames(Gene_corM) = gene[match_list1]
-  colnames(Gene_corM) = gene[match_list2]
+  rownames(Gene_corM) = gene[match_list1, 1]
+  colnames(Gene_corM) = gene[match_list2, 1]
   for (i in 1:ngroup) {
     #print(i)
     sub_result = result[[i]][lengths(result[[i]]) > 0]
