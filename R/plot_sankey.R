@@ -33,8 +33,8 @@ plot_sankey = function(result,cells_group,gene,match_list1,match_list2,p,minGene
   }
 
   Gene_corM = matrix(0,nrow = length(match_list1), ncol = length(match_list2))
-  rownames(Gene_corM) = gene[match_list1]
-  colnames(Gene_corM) = gene[match_list2]
+  rownames(Gene_corM) = gene[match_list1, 1]
+  colnames(Gene_corM) = gene[match_list2, 1]
   for (i in 1:ngroup) {
     #print(i)
     sub_result = result2[[i]][lengths(result2[[i]]) > 0]
@@ -51,7 +51,7 @@ plot_sankey = function(result,cells_group,gene,match_list1,match_list2,p,minGene
   }
   use_gene = which(rowSums(Gene_corM>0) > threshold)
 
-  ligand = as.data.frame(gene[match_list1[use_gene]])
+  ligand = as.data.frame(gene[match_list1[use_gene], 1])
   ligand_id <- bitr(ligand[,1], fromType = "SYMBOL",
                toType = "ENTREZID",
                OrgDb = OrgDb)
