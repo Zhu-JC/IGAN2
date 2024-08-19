@@ -38,6 +38,8 @@ plot_sankey = function(result,cells_group,gene,match_list1,match_list2,p,minGene
   for (i in 1:ngroup) {
     #print(i)
     sub_result = result2[[i]][lengths(result2[[i]]) > 0]
+    if(length(sub_result) == 0)
+      next
     if(length(sub_result)>0){
       group_corM = sapply(sub_result, function(x, ncols){
         k = as.numeric(row.names(x))
