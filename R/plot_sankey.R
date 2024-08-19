@@ -18,6 +18,8 @@ plot_sankey = function(result,cells_group,gene,match_list1,match_list2,p,minGene
   if(!is.null(send_cell) & !is.null(rec_cell)){
     for (i in 1:ngroup) {
       usel = which(lengths(result[[i]]) > 0)
+      if(length(usel) == 0)
+        next
       usep = which(cells_group[[i]][4,] == send_cell & cells_group[[i]][5,] == rec_cell)
       sub_result = vector("list", length = length(result[[i]]))
       for (j in 1:length(usel)) {
